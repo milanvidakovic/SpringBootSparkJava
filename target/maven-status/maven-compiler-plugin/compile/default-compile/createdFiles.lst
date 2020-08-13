@@ -1,0 +1,12 @@
+com\minja\services\StudentService.class
+com\minja\controllers\NaseljenoMestoController.class
+com\minja\entities\Student.class
+com\minja\App.class
+com\minja\spark\SparkConfiguration.class
+com\minja\repositories\StudentRepository.class
+com\minja\spark\ISpark.class
+com\minja\entities\NaseljenoMesto.class
+com\minja\services\NaseljenoMestoService.class
+com\minja\repositories\NaseljenoMestoRepository.class
+com\minja\spark\SparkConfiguration$ErrorMessage.class
+com\minja\controllers\StudentController.class

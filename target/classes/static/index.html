@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/axios.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/toast.js"></script>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/toast.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="studenti">
+    <label>Id</label>
+    <input type="text" v-model="selektovaniStudent.id" v-bind:disabled="mod !== 2"/>
+    <br/>
+    <label>Ime</label>
+    <input type="text" v-model="selektovaniStudent.ime" v-bind:disabled="mod === 0"/>
+    <br/>
+    <label>Prezime</label>
+    <input type="text" v-model="selektovaniStudent.prezime" v-bind:disabled="mod === 0"/>
+    <br/>
+    <label>Mesto rodjenja</label>
+    <select v-model="selektovaniStudent.mestoRodjenja" v-bind:disabled="mod === 0">
+        <option v-for="m in mesta" v-bind:value="m" v-bind:selected="m.id===selektovaniStudent.mestoRodjenja.id">{{m.naziv}}</option>
+    </select>
+    <br/>
+
+    <button v-on:click="snimi()" v-bind:disabled="mod===0">snimi</button>
+    <button v-on:click="odustani()" v-bind:disabled="mod===0">odustani</button>
+
+    <table class="students">
+        <tr>
+            <th>id</th>
+            <th>ime</th>
+            <th>prezime</th>
+            <th>mesto rodjenja</th> 
+            <th></th>
+        </tr>
+        <tr v-for="s in studenti" v-on:click="select(s)" v-bind:class="{selected:selektovaniStudent.id===s.id}">
+            <td>{{s.id}}</td>
+            <td>{{s.ime}}</td>
+            <td>{{s.prezime}}</td>
+            <td>{{s.mestoRodjenja.naziv}}</td>
+            <td><button v-on:click="obrisi(s)">Obrisi</button></td>
+        </tr>
+    </table>
+
+    <button v-on:click="novi()" v-bind:disabled="mod != 0">novi</button>
+    <button v-on:click="edit()" v-bind:disabled="mod != 0 || !selektovaniStudent.id">edit</button>
+
+</div>
+<script src="app/app.js"></script>
+</body>
+</html>
